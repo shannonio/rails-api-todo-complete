@@ -1,7 +1,4 @@
 import React from 'react';
-// import ResponseModalMixin from '../mixins/response-modal.jsx';
-// import FormStateMixin from '../mixins/form-state.jsx';
-// import Highlight from 'react-highlight';
 import Auth from 'j-toker';
 import { Input } from 'semantic-ui-react';
 
@@ -15,9 +12,9 @@ class RegistrationForm extends React.Component {
       favorite_color: '',
       sent_email: '',
       errors: null,
-      config: 'default'
+      config: 'default',
+      user: Auth.user
     };
-
   }
 
   handleInputChange = (event) => {
@@ -33,8 +30,6 @@ class RegistrationForm extends React.Component {
       password_confirmation: this.state.password_confirmation,
     })
       .then(function()  {
-        debugger;
-        debugger;
         this.setState({
           sent_email: this.state.email,
           email: '',
@@ -42,10 +37,8 @@ class RegistrationForm extends React.Component {
           password_confirmation: '',
           favorite_color: '',
         });
-        console.log("Success")
       }).bind(this)
       .fail(function(resp) {
-        console.log("Error")
         this.setState({
           errors: resp.data.errors
         });
@@ -70,9 +63,9 @@ class RegistrationForm extends React.Component {
   };
 
   render() {
-
     return (
         <form>
+          <span>{this.state.user.email}</span>
           <Input type='email'
                 name='email'
                 label='Email'

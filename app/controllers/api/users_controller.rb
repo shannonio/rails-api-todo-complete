@@ -1,7 +1,7 @@
-class DemoUserController < ApplicationController
+class Api::UsersController < ApiController
   before_action :authenticate_user!
 
-  def members_only
+  def show
     render json: {
       data: {
         message: "Welcome #{current_user.email}",
@@ -9,4 +9,5 @@ class DemoUserController < ApplicationController
       }
     }, status: 200
   end
+  
 end

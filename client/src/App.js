@@ -17,9 +17,17 @@ import Auth from 'j-toker';
 import PubSub from 'pubsub-js';
 
 import RegistrationForm from './components/RegistrationForm';
+import ProfileInfo from './components/ProfileInfo';
+import LoginForm from './components/LoginForm';
 
 Auth.configure({
-  apiUrl: 'http://localhost:3000/api'
+  apiUrl: 'http://localhost:3000/api',
+  storage: 'localStorage',
+  confirmationSuccessUrl: '/',
+  handleLoginResponse: (resp) => {
+    console.log(resp)
+    return resp.data;
+  }
 });
 
 class App extends Component {
@@ -52,7 +60,10 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='ui text container'>
-          <RegistrationForm></RegistrationForm>
+          UID: {this.state.user.uid}
+          <ProfileInfo {...this.props.user} />
+          <RegistrationForm />
+          <LoginForm {...this.props.user} />
         </div>
       </div>
     );
