@@ -1,0 +1,32 @@
+{
+  "name": "lookup-client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001/",
+  "devDependencies": {
+    "enzyme": "2.4.1",
+    "react-addons-test-utils": "15.4.0",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "6.22.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "j-toker": "^0.0.10-beta3",
+    "lodash": "^4.17.4",
+    "pubsub-js": "^1.5.7",
+    "react": "15.4.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "15.4.0",
+    "react-highlight": "^0.10.0",
+    "react-router": "^4.2.0",
+    "react-router-bootstrap": "^0.24.4",
+    "semantic-ui": "2.2.10",
+    "semantic-ui-react": "^0.74.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
